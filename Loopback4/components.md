@@ -58,3 +58,46 @@ There are two new decorators to provide LoopBack with metadata about the route, 
 * LoopBack’s **@param** decorator also contains a namespace full of other “subdecorators” like @param.path, @param.query, and @param.header that allow specification of metadata for those parts of a REST request.
 
 * LoopBack’s **@param.path** and **@param.query** also provide subdecorators for specifying the type of certain value primitives, such as @param.path.number('id').
+
+## Sequence
+
+A Sequence is a series of steps to control how a specific type of Server responds to incoming requests. Each types of servers, such as RestServer, GraphQLServer, GRPCServer, and WebSocketServer, will have its own flavor of sequence. The sequence represents the pipeline for inbound connections.
+
+The contract of a Sequence is simple: it must produce a response for a request. The signature will vary by server types.
+
+Each server type has a default sequence. It’s also possible to create your own Sequence to have full control over how your Server instances handle requests and responses.
+
+
+* ### Middleware-based Sequence
+* ### Action based Sequence
+
+When a LoopBack application is scaffolded using lb4 app command, a MySequence class is generated in src/sequence.ts.
+
+```typescript
+import {MiddlewareSequence} from '@loopback/rest';
+
+export class MySequence extends MiddlewareSequence {}
+```
+
+MySequence is then used by the RestApplication in src/application.ts
+```typescript
+import {BootMixin} from '@loopback/boot';
+import {ApplicationConfig} from '@loopback/core';
+import {RepositoryMixin} from '@loopback/repository';
+import {RestApplication} from '@loopback/rest';
+import {ServiceMixin} from '@loopback/service-proxy';
+import {MySequence} from './sequence';
+
+export {ApplicationConfig};
+
+export class TodoListApplication extends BootMixin(
+  ServiceMixin(RepositoryMixin(RestApplication)),
+) {
+  constructor(options: ApplicationConfig = {}) {
+    super(options);
+    // Set up the custom sequence
+    this.sequence(MySequence);
+    // ...
+  }
+}
+```
