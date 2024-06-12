@@ -1,4 +1,10 @@
 #### [Back](../README.md)
 
-* ### [Todo](./todo.md)
+* ### [Bash Commands](./BashCommands.md)
 * ### [EOS](./EOS.md)
+* ### [NFRs](./NFR.md)
+* ### [JQ](./JQ.md)
+* ### [Node Commands](./NodeCommands.md)
+* ### [Operators](./Operators.md)
+* ### [Parse JSON data with JQ](./ParseJSONwithJQ.md)
+* ### [Todo](./todo.md)
