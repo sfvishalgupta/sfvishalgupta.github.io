@@ -8,4 +8,6 @@
 ## [Database Migrations](./migrations.md)
 ## [Loopback CLI Commands](./cli.md)
 ## [Building Blocks](./buildingBlocks.md)
+## [Core Concepts](./core/README.md)
+## [How to Guide](./howtoguild/README.md)
 

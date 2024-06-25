@@ -3,6 +3,7 @@
 * ### [AWS](./AWS/README.md)
 * ### [Apache Superset](./Superset/README.md)
 * ### [ARC-IAC Examples](./arc-iac-examples/README.md)
+* ### [Bash](./Bash/README.md)
 * ### [CDKTF](./CDKTF/README.md)
 * ### [Docker](./Docker/README.md)
 * ### [Git](GIT/README.md)

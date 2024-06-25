@@ -14,7 +14,7 @@
 
 * **Route** The mapping between your API specification and an Operation. It tells LoopBack which Operation to invoke() when given an HTTP request.
 
-* **Sequence** A stateless grouping of Actions that control how a Server responds to requests.
+* **[Sequence](./core/sequence.md)** A stateless grouping of Actions that control how a Server responds to requests.
 
 * **Model** The definition of an object in respect to the datasource juggler. The @loopback/repository module provides special decorators for adding metadata to TypeScript/JavaScript classes to use them with DataSource Juggler. In addition, @loopback/repository-json-schema module uses the decorators’ metadata to build a matching JSON Schema.
 
