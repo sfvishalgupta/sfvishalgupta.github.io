@@ -69,7 +69,7 @@ DB_IMAGES:
 
 
 ### Enable Debugging
-```
+```python
 FLASK_DEBUG=True
 ```
 
@@ -79,7 +79,7 @@ WTF_CSRF_ENABLED = True
 ```
 
 ### Disable Example DB
-```bash
+```python
 SUPERSET_LOAD_EXAMPLES=yes
 ```
 
@@ -92,14 +92,25 @@ Below are the Authentication Type
 5. AUTH_OAUTH : For OAuth
 
 ### Enable OAuth
-```bash
+```python
 AUTH_TYPE=AUTH_OAUTH
 ```
 
 ### Registration Config (Allow Self Registration)
-```bash
+```python
 AUTH_USER_REGISTRATION = True
 ```
+
+### REST API for user & role management
+Flask-AppBuilder supports a REST API for user CRUD,
+but this feature is in beta and is not enabled by default in Superset.
+To enable this feature, set the following in your Superset configuration:
+
+```python
+FAB_ADD_SECURITY_API = True
+```
+
+Once configured, the documentation for additional "Security" endpoints will be visible in Swagger for you to explore.
 
 ### List of OAuth Providers
 ```python
