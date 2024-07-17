@@ -1,6 +1,6 @@
 #### [Back](../README.md)
 
-* ### [Abbreviation](abbreviation.md)
+* ### [Abbreviation](./abbreviation.md)
 * ### [EOS](./EOS.md)
 * ### [NFRs](./NFR.md)
 * ### [Node Commands](./NodeCommands.md)
