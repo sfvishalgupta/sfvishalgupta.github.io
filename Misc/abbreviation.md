@@ -2,6 +2,21 @@
 
 # Abbreviation
 
-* **AWS Map** Migrator Accelerator Program
 * **ARR** Annual Recurring and Revenue
+* **RFP** Request of Proposal
+* **SOP** Standard Operating Procedure
+* **SLA** Service level Agreement
+* **SOW** Scope of Work
+
+------------------
+
+* **Map** Migrator Accelerator Program
 * **MRA** Migration Readiness Assessment
+* **MSP** Migration Service Provider
+
+------------
+
+* **AI** Artificial intelligence
+* **LLM** Large Language Model
+* **GPT** Generative Pre-trained Transformer
+* **NLP** Natural Language Processing
