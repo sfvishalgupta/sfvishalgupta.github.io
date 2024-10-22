@@ -7,7 +7,8 @@
 * **SOP** Standard Operating Procedure
 * **SLA** Service level Agreement
 * **SOW** Scope of Work
-
+* **RTO** Recovery Time Objective
+* **RPO** Recovery Point Objective
 ------------------
 
 * **Map** Migrator Accelerator Program
