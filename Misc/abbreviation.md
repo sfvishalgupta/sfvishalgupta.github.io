@@ -9,6 +9,7 @@
 * **SOW** Scope of Work
 * **RTO** Recovery Time Objective
 * **RPO** Recovery Point Objective
+* **SMC** Simple Monthly Calculator 
 
 ------------------
 
