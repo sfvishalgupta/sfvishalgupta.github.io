@@ -7,3 +7,4 @@
 * ### [Operators](./Operators.md)
 * ### [Parse JSON data with JQ](./ParseJSONwithJQ.md)
 * ### [Todo](./todo.md)
+* ### [Cloud Agnostic Services](./CloudAgnosticServices.md)

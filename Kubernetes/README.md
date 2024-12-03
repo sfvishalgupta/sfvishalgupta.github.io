@@ -1,6 +1,52 @@
 #### [Back](../README.md)
 
 # Kubernetes K8
+<style>
+    img{
+        width: 80%;
+    }
+</style>
+![image info](./k8.png)
+
+## Installing Kubernetes
+
+1. **Using Kubernetes in Docker (KIND)**
+
+```bash
+brew install kind
+```
+
+2. **Creating a Cluster**
+```bash
+kind delete cluster -n cluster_name
+kind create cluster --config kind.yaml  # Creating a Cluster
+```
+
+Below is the config file for creating a cluster with extra mount option
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: kc-cluster
+nodes:
+- role: control-plane
+  name: kc-control-plane
+  extraMounts:
+  - hostPath: /var/www/kubernetes/data
+    containerPath: /mnt/data
+```
+
+3. **Get Clusters**
+```bash
+kind get clusters       # List of Clusters
+kind get nodes          # List of Nodes
+kind get kubeconfigs    # List all config
+```
+
+3. **Install Kubectl**
+```bash 
+brew install kubectl
+```
 
 Containers -> Nodes (Machine) -> PODS
 
@@ -42,3 +88,9 @@ In K8, a resource is an endpoint in kubernetes API that stores a collection of A
 4. **[Nodes](./Nodes.md):** Represent individual machines in a Kubernetes cluster.
 5. **ClusterRoles:** Define permissions for cluster-wide resources.
 6. **ClusterRoleBindings:** Bind ClusterRoles to users or service accounts.
+
+---------------------
+
+* **[Kubecost](./Kubecost.md)**
+* **[Helm Chart](./HelmChart.md)**
+
