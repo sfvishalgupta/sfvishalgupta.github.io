@@ -45,3 +45,30 @@ Kubernetes deployments provide several benefits, including:
 + **High availability:** Deployments ensure that a specified number of replicas are running at all times, making it easier to achieve high availability.
 
 + **Simplified management:** Deployments provide a simple way to manage complex applications, making it easier to scale, update, and manage your applications.
+
+## Scaling Deployments
+To update the number of replicas in a Kubernetes deployment, you can use **scale** 
+
+1. **Update Replicas Using kubectl scale**
+```bash
+kubectl scale deployment my-deployment --replicas=5
+```
+
+2. **Update Replicas Using kubectl patch**
+```bash
+kubectl patch deployment my-deployment -p '{"spec":{"replicas":5}}'
+```
+
+3. **Verify the Update**
+```bash
+kubectl get deployment my-deployment -o yaml
+```
+
+## Deployment Stratigies
+
+1. **[Recreate Deployment Strategy](./Deployment-Strategies/Recreate.md)**
+2. **[Rolling Update Deployment Strategy (Default)](./Deployment-Strategies/Rolling-Update.md)**
+3. **[Blue-Green Deployment Strategy](./Deployment-Strategies/Blue-Green.md)**
+4. **[Canary Deployment Strategy](./Deployment-Strategies/Canary.md)**
+5. **[A/B Testing Deployment Strategy](./Deployment-Strategies/A-B-Testing.md)**
+
