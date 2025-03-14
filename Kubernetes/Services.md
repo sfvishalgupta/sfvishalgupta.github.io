@@ -1,5 +1,9 @@
-#### [Back](./README.md)
-
+#### [Back](./Kubernetes-Resources.md)
+<style>
+  img {
+    width: 90%;
+  }
+</style>
 # K8 Service
 
 A Service in Kubernetes is an abstract resource that provides a network identity and load balancing for accessing a group of pods. Services enable communication between pods and other services, and provide a stable network identity for accessing applications.
@@ -10,6 +14,25 @@ There are several types of Services in Kubernetes:
 1. **ClusterIP:** Exposes the service on a cluster-internal IP address.
 
 2. **NodePort:** Exposes the service on a specific port on each node in the cluster.
+
+![image info](./nodeport.png)
+```yaml
+apiVersion: v1
+kind: Service
+metadata: 
+  name: myapp-service
+
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80 # will assumed to be same as port by default
+      port: 80  # only mandatory
+      nodePort: 30008 #if not provided, it will automatically assign the port in the valid range.
+  selector:
+  # to identify the pod
+    app: myapp
+    type: front-end
+```
 
 3. **LoadBalancer:** Exposes the service through a cloud provider's load balancer.
 

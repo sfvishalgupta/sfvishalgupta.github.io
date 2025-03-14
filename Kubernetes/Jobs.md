@@ -1,4 +1,4 @@
-#### [Back](./README.md)
+#### [Back](./Kubernetes-Resources.md)
 
 # K8 Jobs
 
@@ -47,4 +47,27 @@ spec:
 
 ```bash
 kubectl apply -f my-job.yaml
+```
+
+## Example of Job with Node image
+```yaml
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: my-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-container
+        image: node:latest
+        command: ["bash", "-c"]
+        args:
+        - |
+          git clone https://github.com/sfvishalgupta/hello-world.git /app
+          cd /app
+          npm install
+          node index.js
+      restartPolicy: Never
+  backoffLimit: 4
 ```

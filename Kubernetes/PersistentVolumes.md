@@ -1,4 +1,4 @@
-#### [Back](./README.md)
+#### [Back](./Kubernetes-Resources.md)
 
 # K8 Persistent Volumes (PVs)
 Persistent Volumes are a Kubernetes resource that provides persistent storage for pods. PVs are used to manage storage resources, such as disks or files, that are required by pods.

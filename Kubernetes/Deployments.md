@@ -1,4 +1,4 @@
-#### [Back](./README.md)
+#### [Back](./Kubernetes-Resources.md)
 
 # K8 Deployments
 
@@ -65,10 +65,31 @@ kubectl get deployment my-deployment -o yaml
 ```
 
 ## Deployment Stratigies
-
+ 
 1. **[Recreate Deployment Strategy](./Deployment-Strategies/Recreate.md)**
 2. **[Rolling Update Deployment Strategy (Default)](./Deployment-Strategies/Rolling-Update.md)**
 3. **[Blue-Green Deployment Strategy](./Deployment-Strategies/Blue-Green.md)**
 4. **[Canary Deployment Strategy](./Deployment-Strategies/Canary.md)**
 5. **[A/B Testing Deployment Strategy](./Deployment-Strategies/A-B-Testing.md)**
 
+
+## Rolling Updates & Rollback
+
+### Get status of Rollouts
+```bash
+kubectl rollout status deployment/my-deployment
+```
+
+### Get Histor of Rollouts
+```bash
+kubectl rollout history deployment/my-deployment
+```
+
+### Rollback to previous revision
+```bash
+kubectl rollout undo deployment/my-deployment
+```
+### Update the image of a deployment
+```bash
+kubectl set image deployment/my-deployment --image=nginx:1.9.1
+```

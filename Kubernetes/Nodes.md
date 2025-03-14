@@ -1,4 +1,4 @@
-#### [Back](./README.md)
+#### [Back](./Kubernetes-Resources.md)
 
 # K8 Nodes
 
@@ -36,3 +36,73 @@ A Node is a machine (physical or virtual) that participates in a Kubernetes clus
 3. **Upgrading Nodes:** Nodes can be upgraded using the kubectl upgrade command.
 
 4. **Maintaining Nodes:** Nodes can be maintained using the kubectl describe node and kubectl get node commands.
+
+## Node Affinity
+
+Type
++ **requiredDuringSchedulingIgnoredDuringExecution**
+
++ **prefferedDuringSchedulingIgnoredDuringExecution**
+
+To put the POD at Node Having Label **Large**
+```yaml
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+            - key: size
+              operator: in
+              values:
+              - Large
+```
+
+is Equvalent to 
+
+```yaml
+nodeSelector:
+    size: Large
+```
+
+## Lable a Node (For Node Selector)
+```bash
+kubectl lable nodes node app-node size=large
+```
+
+## Get Taints on Node
+```bash
+kubectl describe node node01 | grep Taints
+```
+
+## K8 Drain
+The drain command is used to safely evict all pods from a node, typically before performing maintenance or decommissioning the node.
+When you run k8 drain <node_name>, Kubernetes will:
+
+1. Mark the node as unschedulable (i.e., no new pods will be scheduled on it).
+2. Evict all pods from the node, respecting the PodDisruptionBudget (if defined).
+3. Wait for the pods to be deleted or rescheduled on other nodes.
+
+## k8 cordon
+The cordon command is used to mark a node as unschedulable, preventing new pods from being scheduled on it.
+When you run k8 cordon <node_name>, Kubernetes will:
+1. Mark the node as unschedulable.
+2. Prevent new pods from being scheduled on the node.
+Note that existing pods on the node will not be affected.
+
+## k8 uncordon:
+The uncordon command is used to mark a node as schedulable again, allowing new pods to be scheduled on it.
+When you run k8 uncordon <node_name>, Kubernetes will:
+1. Mark the node as schedulable.
+2. Allow new pods to be scheduled on the node.
+
+```bash
+# Mark a node as unschedulable (cordon)
+k8 cordon my-node
+
+# Drain a node (evict all pods)
+k8 drain my-node
+
+# Mark a node as schedulable again (uncordon)
+k8 uncordon my-node
+```

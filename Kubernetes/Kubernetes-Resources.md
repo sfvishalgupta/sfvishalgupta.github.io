@@ -36,10 +36,30 @@ In K8, a resource is an endpoint in kubernetes API that stores a collection of A
 
 ### Cluster Resources
 1. **[Namespaces](./Namespaces.md):** Partition resources and provide isolation between different applications or teams.
-2. **ResourceQuotas:** Define quotas for resources, such as CPU and memory, within a Namespace.
-3. **LimitRanges:** Define constraints on resource usage, such as minimum and maximum CPU and memory, within a Namespace.
+2. **[ResourceQuotas](./ResourceQuota.md):** Define quotas for resources, such as CPU and memory, within a Namespace.
+3. **[LimitRanges](./LimitRanges.md):** Define constraints on resource usage, such as minimum and maximum CPU and memory, within a Namespace.
 4. **[Nodes](./Nodes.md):** Represent individual machines in a Kubernetes cluster.
-5. **ClusterRoles:** Define permissions for cluster-wide resources.
-6. **ClusterRoleBindings:** Bind ClusterRoles to users or service accounts.
+5. **[ClusterRoles](./ClusterRole.md):** Define permissions for cluster-wide resources.
+6. **[ClusterRoleBindings](./ClusterRole.md):** Bind ClusterRoles to users or service accounts.
 
+### Explain the Resource
+```bash
+kubectl explain Pod
+```
+
+### Get Current Context
+```bash
+kubectl config current-context
+```
+
+### Set default namespace in Current Context
+```bash
+kubectl config set-context $(kubectl config current-context) --namespace dev
+```
+
+### Lable Commands 
+```yaml
+kubectl label node node01 color=blue
+```
+ 
 ![image info](./resourcemap.png)

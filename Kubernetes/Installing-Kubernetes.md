@@ -22,7 +22,6 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: kc-cluster
 nodes:
 - role: control-plane
-  name: kc-control-plane
   extraMounts:
   - hostPath: /var/www/kubernetes/data
     containerPath: /mnt/data
